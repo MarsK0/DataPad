@@ -12,6 +12,9 @@ export default class Datasource<T extends object & T extends any[] ? never : obj
     datasourceName: string,
     fileExtensionWithoutDot: string,
   ){
+
+    if(!fs.existsSync(datasourcePath)) fs.mkdirSync(datasourcePath)
+
     this.dataSource = `${datasourcePath}/${datasourceName}.${fileExtensionWithoutDot}`;
 
     const datasourceIsCreated: boolean = fs.existsSync(this.dataSource)
