@@ -90,8 +90,6 @@ export default class Datasource<T extends object & T extends any[] ? never : obj
 
       const paramsMatch = Object.entries(params).every(([key, value]) => data[key as keyof typeof data] === value)
 
-      console.log(paramsMatch)
-
       if(paramsMatch){
 
         this.data[index] = { ...data, ...update }
